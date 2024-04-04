@@ -12,11 +12,11 @@ To create a platform where developers can schedule, join, and manage pair progra
 
 | Route Name | Endpoint | Method | Description | 
 |------------|----------|--------|-------------|
-| Landing | /sessions/ | GET | Renders all peer-programming sessions on a page|
-| SessionShow | /sessions/:id/ | GET | Renders a session details|
-| SessionCreate | /sessions/create/ | POST | Creates a perr programming session |
-| SessionDelete | /sessions/delete/:id/ | DELETE | Deletes a session |
-| SessionEdit | /sessions/update/:id/ | PUT | Updates a session details|
+| Landing | / | GET | Renders all peer-programming sessions on a page|
+| SessionShow | /sessions/:id | GET | Renders a session details|
+| SessionCreate | /sessions/create | POST | Creates a perr programming session |
+| SessionDelete | /sessions/delete/:id | DELETE | Deletes a session |
+| SessionEdit | /sessions/update/:id | PUT | Updates a session details|
 
 
 ## React Architecture (Expected Tree of React Components)
