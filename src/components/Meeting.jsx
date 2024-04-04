@@ -6,7 +6,9 @@ export default function Meeting({ meeting }) {
 
     return (
         <div>
-            <h1>meeting {meeting}</h1>
+            <Link to={`/sessions/${id}`}>
+                <h1>{meeting.title}</h1>
+            </Link>
         </div>
     )
 }
