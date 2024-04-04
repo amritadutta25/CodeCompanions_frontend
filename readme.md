@@ -1,7 +1,7 @@
 # Description
 
 - **App Name:** CollabCoders
-- **Description:** A Peer Programming Session Scheduler platform that facilitates the scheduling and management of pair programming sessions, which are crucial for collaborative coding, learning, and mentorship within the developer community.
+- **Description:** A Peer Programming Session Scheduler platform that facilitates the scheduling and management of pair programming sessions, which are crucial for collaborative coding, learning and mentorship within the developer community.
 - **Github URL:** https://github.com/amritadutta25/CollabCoders_frontend
 - **Deployed Website:** 
 
