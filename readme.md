@@ -12,7 +12,7 @@ To create a platform where developers can schedule, join, and manage pair progra
 
 | Route Name | Endpoint | Method | Description | 
 |------------|----------|--------|-------------|
-| Landing | / | GET | Renders all peer-programming sessions on a page|
+| Landing | /sessions/ | GET | Renders all peer-programming sessions on a page|
 | SessionShow | /sessions/:id | GET | Renders a session details|
 | SessionCreate | /sessions/create | POST | Creates a perr programming session |
 | SessionDelete | /sessions/delete/:id | DELETE | Deletes a session |
