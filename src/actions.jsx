@@ -60,8 +60,8 @@ export const updateAction = async ({request, params}) => {
         },
         body: JSON.stringify(updatedMeeting)
     })
-    // redirect to the Show page
-    return redirect(`/sessions/${id}`)
+    // redirect to the Index page
+    return redirect("/")
 }
 
 
