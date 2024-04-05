@@ -8,42 +8,53 @@ export default function Show(props) {
      
     return (
         <div>
-            <h1>{aMeeting['title']}</h1>
-            <h2>{aMeeting['description']}</h2>
-
             
-            <div className="session-show-content">
-                <div >
-                    <h2>Technology:</h2>
-                    <p>{aMeeting['technology']}</p>
-                </div>
-                <div >
-                    <h2>Date:</h2>
-                    <p>{aMeeting['date']}</p>
-                    <h2>Time:</h2>
-                    <p>{aMeeting['time']}</p>
-                </div>
-                <div>
-                    <h2>Status:</h2>
-                    <p>{aMeeting['status']}</p>
-                </div>
-            </div>
-
-
             <div>
-                {/* Update form */}
-                {/* <Form action={`/update/${id}/`} method="POST">
-                    <label htmlFor="name">
-                        Rename you Turtle
-                        <input type="text" id="name" name="name" defaultValue={aPet.name}/>
+                {/* Update and Show form together*/}
+                <Form action={`/sessions/update/${id}`} method="post"> 
+                    <label htmlFor="title"> Title:
+                        <input type="text" defaultValue={aMeeting['title']} name="title" id="title" />
                     </label>
-                    
-                    <label htmlFor="age">
-                        Did they have a birthday?
-                        <input type="number" id="age" name="age" defaultValue={aPet.age}/>
+                    <label htmlFor="description"> Description:
+                        <input type="text" defaultValue={aMeeting['description']} name="description" id="description" />
                     </label>
-                    <button style={{"backgroundColor": "blue"}}>Update our Turtle</button>
-                </Form> */}
+                    <label htmlFor="host-name"> Host:
+                        <input type="text" defaultValue={aMeeting['host_name']} name="host-name" id="host-name" />
+                    </label>
+                    <label htmlFor="technology"> Technology:
+                        <input type="text" defaultValue={aMeeting['technology']} name="technology" id="technology" />
+                    </label>
+                    <label htmlFor="date"> Session Date
+                        <input type="date" defaultValue={aMeeting['date']} name="date" id="date" />
+                    </label>
+                    <label htmlFor="time"> Session time
+                        <input type="time" defaultValue={aMeeting['time']} name="time" id="time" />
+                    </label>
+                    <label htmlFor="duration"> Duration:
+                        <input type="number" defaultValue={aMeeting['duration']} name="duration" id="duration" />
+                    </label>
+                    <label htmlFor="skill-level"> Skill Level:
+                        <select name="skill-level" defaultValue={aMeeting['title']}> 
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">
+                                Intermediate
+                            </option>
+                            <option value="Advanced">
+                                Advanced
+                            </option>
+                        </select>
+                    </label>
+                    <label htmlFor="session-link"> Session Link:
+                        <input type="text" defaultValue={aMeeting['session_link']} name="session-link" id="session-link" />
+                    </label>
+                    <label htmlFor="status"> Status:
+                        <select name="status" defaultValue={aMeeting['status']}>
+                            <option value="Open" selected="selected">Open</option>
+                            <option value="Full">Full</option>
+                        </select>
+                    </label>
+                    <button>Update Session</button>
+                </Form>
 
                 {/* Delete Form */}
                 <Form action={`/sessions/delete/${id}/`} method="post">
