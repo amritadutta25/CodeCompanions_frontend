@@ -1,66 +1,49 @@
 import Meeting from "../components/Meeting"
-import { Form, useLoaderData } from "react-router-dom"
+import NewMeeting from "../components/newMeeting"
+import { useLoaderData } from "react-router-dom"
+import {useState} from 'react'
 
 export default function Index(props) {
     const allMeetings = useLoaderData()
 
+    const [buttonClicked, setButtonClicked] = useState(false)
+
+    function handleNewSession()
+    {
+        setButtonClicked(false)
+    }
+
     return (
-        <div>
-            <h1>Add A Session</h1>
-            <Form action="/sessions/create" method="post"> 
-                <label htmlFor="title">
-                    <input type="text" placeholder="Enter the title of the session" name="title" id="title" />
-                </label>
-                <label htmlFor="description">
-                    <input type="text" placeholder="Enter the description of the session" name="description" id="description" />
-                </label>
-                <label htmlFor="host-name">
-                    <input type="text" placeholder="Enter the Host name" name="host-name" id="host-name" />
-                </label>
-                <label htmlFor="technology">
-                    <input type="text" placeholder="Enter the technology to be used during the session" name="technology" id="technology" />
-                </label>
-                <label htmlFor="date"> Session Date
-                    <input type="date" name="date" id="date" />
-                </label>
-                <label htmlFor="time"> Session time
-                    <input type="time" name="time" id="time" />
-                </label>
-                <label htmlFor="duration">
-                    <input type="number" placeholder="Enter the duration of the session in hours" name="duration" id="duration" />
-                </label>
-                <label htmlFor="skill-level">
-                    <select name="skill-level" defaultValue=""> 
-                    {/* defaultValue="" Ensures the "placeholder" is selected by default */}
-                        {/* This option acts as a placeholder */}
-                        <option value="" disabled hidden>
-                            Select Participant Skill Level
-                        </option>
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">
-                            Intermediate
-                        </option>
-                        <option value="Advanced">
-                            Advanced
-                        </option>
-                    </select>
-                </label>
-                <label htmlFor="session-link">
-                    <input type="text" placeholder="Enter the session link (Webex, Zoom etc.)" name="session-link" id="session-link" />
-                </label>
-                <label htmlFor="status">
-                    <select name="status" defaultValue="">
-                        <option value="" disabled hidden>
-                            Indicate whether the session is Open for joining or Full
-                        </option>
-                        <option value="Open" selected="selected">Open</option>
-                        <option value="Full">Full</option>
-                    </select>
-                </label>
-                <button>Add Session</button>
-            </Form>
-            <hr />
-            {allMeetings.map((meeting, i) => <Meeting meeting={meeting} key={i}/>)}
+        <div className="index-page flex">
+            <div className="add-session-section flex">
+                <button className='new-meeting-button' onClick={() => {setButtonClicked(true)}} >
+                    <i class="fa-sharp fa-light fa-plus"> Add Session </i>
+                </button>
+
+                { buttonClicked ? 
+                <div className="new-session-form-modal-backdrop flex">
+                    <div className="new-session-form-modal-content">
+                        <NewMeeting handleNewSession={handleNewSession} />
+                    </div>
+                </div>
+                : null }
+
+                
+            </div>
+            
+            
+            <div className="vertical-line"></div>
+
+            <div className="all-sessions">
+                <div className="table-heading flex">
+                    <h2>Date</h2>
+                    <h2>Time</h2>
+                    <h2>Title</h2>
+                    <h2>Technology</h2>
+                </div>
+                {allMeetings.map((meeting, i) => <Meeting meeting={meeting} key={i}/>)}
+            </div>
+            
         </div>
     )
 }

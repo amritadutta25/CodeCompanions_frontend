@@ -7,16 +7,16 @@ export default function Show(props) {
     const id = aMeeting?.url.split("/")[4]
      
     return (
-        <div>
             
-            <div>
+        <div className="show-page-container flex">
+            <div className="show-update-form">
                 {/* Update and Show form together*/}
                 <Form action={`/sessions/update/${id}`} method="post"> 
                     <label htmlFor="title"> Title:
                         <input type="text" defaultValue={aMeeting['title']} name="title" id="title" />
                     </label>
                     <label htmlFor="description"> Description:
-                        <input type="text" defaultValue={aMeeting['description']} name="description" id="description" />
+                        <textarea defaultValue={aMeeting['description']} name="description" id="description" />
                     </label>
                     <label htmlFor="host-name"> Host:
                         <input type="text" defaultValue={aMeeting['host_name']} name="host-name" id="host-name" />
@@ -34,14 +34,10 @@ export default function Show(props) {
                         <input type="number" defaultValue={aMeeting['duration']} name="duration" id="duration" />
                     </label>
                     <label htmlFor="skill-level"> Skill Level:
-                        <select name="skill-level" defaultValue={aMeeting['title']}> 
+                        <select name="skill-level" defaultValue={aMeeting['skill_level']}> 
                             <option value="Beginner">Beginner</option>
-                            <option value="Intermediate">
-                                Intermediate
-                            </option>
-                            <option value="Advanced">
-                                Advanced
-                            </option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
                         </select>
                     </label>
                     <label htmlFor="session-link"> Session Link:
@@ -49,7 +45,7 @@ export default function Show(props) {
                     </label>
                     <label htmlFor="status"> Status:
                         <select name="status" defaultValue={aMeeting['status']}>
-                            <option value="Open" selected="selected">Open</option>
+                            <option value="Open" >Open</option>
                             <option value="Full">Full</option>
                         </select>
                     </label>
@@ -61,11 +57,6 @@ export default function Show(props) {
                     <button style={{"backgroundColor": "red"}}>Delete Session</button>
                 </Form>
             </div>
-
-            <Link to="/">
-                <button>Go Back</button>
-            </Link>
-
 
         </div>
     )
