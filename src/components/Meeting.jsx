@@ -10,7 +10,10 @@ export default function Meeting({ meeting }) {
         let minute = time.slice(3,5)
 
         if (hour > 12 && hour < 24){  // 1 PM to 11 PM
-            time = `${hour - 12}:${minute} PM`
+            if ((hour-12) < 10) {
+                let formattedHour = `0${hour-12}`
+                time = `${formattedHour}:${minute} PM`
+            } 
         }
         else if (hour === 0 || hour === 24){ // Midnight
             time = `12:${minute} AM`
